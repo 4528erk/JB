@@ -1,0 +1,249 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local Hathub = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local TextButton = Instance.new("TextButton")
+local TextLabel = Instance.new("TextLabel")
+local Requirement = Instance.new("Frame")
+local ExitRequiredHatsforhathub = Instance.new("TextButton")
+local TextBox = Instance.new("TextBox")
+
+--Properties:
+
+Hathub.Name = "Hathub"
+Hathub.Parent = game.CoreGui
+Hathub.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = Hathub
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.Position = UDim2.new(0.377208471, 0, 0.219393939, 0)
+Frame.Size = UDim2.new(0, 264, 0, 239)
+Frame.Active = true
+Frame.Draggable = true
+
+TextButton.Parent = Frame
+TextButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+TextButton.Position = UDim2.new(0.121212125, 0, 0.460251033, 0)
+TextButton.Size = UDim2.new(0, 200, 0, 50)
+TextButton.Font = Enum.Font.LuckiestGuy
+TextButton.Text = "Activate"
+TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.TextScaled = true
+TextButton.TextSize = 14.000
+TextButton.TextWrapped = true
+TextButton.MouseButton1Down:connect(function()
+
+	Welcome.Name = "Welcome"
+	Welcome.Parent = Main
+	Welcome.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
+	Welcome.BackgroundTransparency = 1.000
+	Welcome.BorderSizePixel = 0
+	Welcome.Position = UDim2.new(0.368291467, 0, 0, 0)
+	Welcome.Size = UDim2.new(0, 172, 0, 27)
+	Welcome.Font = Enum.Font.SourceSans
+	Welcome.Text = "-"
+	Welcome.TextColor3 = Color3.fromRGB(0, 0, 0)
+	Welcome.TextScaled = true
+	Welcome.TextSize = 20.000
+	Welcome.TextWrapped = true
+
+	Hub.Name = "Hub"
+	Hub.Parent = Main
+	Hub.BackgroundColor3 = Color3.fromRGB(255, 163, 26)
+	Hub.BorderSizePixel = 0
+	Hub.Position = UDim2.new(0.148261026, 0, 0, 0)
+	Hub.Size = UDim2.new(0, 53, 0, 27)
+
+	TextLabel_10.Parent = Hub
+	TextLabel_10.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	TextLabel_10.BackgroundTransparency = 1.000
+	TextLabel_10.BorderSizePixel = 0
+	TextLabel_10.Position = UDim2.new(-0.00564749539, 0, 0, 0)
+	TextLabel_10.Size = UDim2.new(0, 52, 0, 27)
+	TextLabel_10.Font = Enum.Font.SourceSans
+	TextLabel_10.Text = "Hub"
+	TextLabel_10.TextColor3 = Color3.fromRGB(0, 0, 0)
+	TextLabel_10.TextScaled = true
+	TextLabel_10.TextSize = 50.000
+	TextLabel_10.TextWrapped = true
+
+	TextLabel_11.Parent = Main
+	TextLabel_11.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
+	TextLabel_11.BackgroundTransparency = 1.000
+	TextLabel_11.BorderSizePixel = 0
+	TextLabel_11.Position = UDim2.new(-0.000354729069, 0, 0, 0)
+	TextLabel_11.Size = UDim2.new(0, 49, 0, 27)
+	TextLabel_11.Font = Enum.Font.SourceSans
+	TextLabel_11.Text = "Hat"
+	TextLabel_11.TextColor3 = Color3.fromRGB(255, 255, 255)
+	TextLabel_11.TextScaled = true
+	TextLabel_11.TextSize = 50.000
+	TextLabel_11.TextWrapped = true
+
+	-- Scripts:
+
+	local function UCTSGTA_fake_script() -- credits.LocalScript 
+		local script = Instance.new('LocalScript', credits)
+
+		script.Parent.MouseButton1Click:Connect(function()
+			script.Parent.Parent.Scripts.Visible = false
+			script.Parent.Parent.Credits.Visible = true
+			script.Parent.Parent.Updates.Visible = false
+		end)
+	end
+	coroutine.wrap(UCTSGTA_fake_script)()
+	local function FUPUUWX_fake_script() -- scripts.LocalScript 
+		local script = Instance.new('LocalScript', scripts)
+
+		script.Parent.MouseButton1Click:Connect(function()
+			script.Parent.Parent.Scripts.Visible = true
+			script.Parent.Parent.Credits.Visible = false
+			script.Parent.Parent.Updates.Visible = false
+		end)
+	end
+	coroutine.wrap(FUPUUWX_fake_script)()
+	local function LFORL_fake_script() -- updates.LocalScript 
+		local script = Instance.new('LocalScript', updates)
+
+		script.Parent.MouseButton1Click:Connect(function()
+			script.Parent.Parent.Scripts.Visible = false
+			script.Parent.Parent.Credits.Visible = false
+			script.Parent.Parent.Updates.Visible = true
+		end)
+	end
+	coroutine.wrap(LFORL_fake_script)()
+	local function YLMDVM_fake_script() -- Welcome.LocalScript 
+		local script = Instance.new('LocalScript', Welcome)
+
+		user = game.Players.LocalPlayer
+
+		script.Parent.Text = "Welcome, " .. user.Name
+	end
+	coroutine.wrap(YLMDVM_fake_script)()
+	local function QHASD_fake_script() -- Main.Open/Close 
+		local script = Instance.new('LocalScript', Main)
+
+		local HH =  script.Parent
+		local open = false
+		local UserInputService = game:GetService("UserInputService")
+
+		UserInputService.InputBegan:connect(function(keyCode)
+			if keyCode.keyCode == Enum.KeyCode.LeftAlt then
+				if open then
+					HH.Visible = true
+					open = false
+				else
+					open = true
+					HH.Visible = false
+				end
+			end
+		end)
+	end
+	coroutine.wrap(QHASD_fake_script)()
+	local function EREBEG_fake_script() -- Main.Drag 
+		local script = Instance.new('LocalScript', Main)
+
+		local dragger = {}; 
+		local resizer = {};
+
+		do
+			local mouse = game:GetService("Players").LocalPlayer:GetMouse();
+			local inputService = game:GetService('UserInputService');
+			local heartbeat = game:GetService("RunService").Heartbeat;
+			function dragger.new(frame)
+				local s, event = pcall(function()
+					return frame.MouseEnter
+				end)
+
+				if s then
+					frame.Active = true;
+
+					event:connect(function()
+						local input = frame.InputBegan:connect(function(key)
+							if key.UserInputType == Enum.UserInputType.MouseButton1 then
+								local objectPosition = Vector2.new(mouse.X - frame.AbsolutePosition.X, mouse.Y - frame.AbsolutePosition.Y);
+								while heartbeat:wait() and inputService:IsMouseButtonPressed(Enum.UserInputType.MouseButton1) do
+									frame:TweenPosition(UDim2.new(0, mouse.X - objectPosition.X + (frame.Size.X.Offset * frame.AnchorPoint.X), 0, mouse.Y - objectPosition.Y + (frame.Size.Y.Offset * frame.AnchorPoint.Y)), 'Out', 'Quad', 0.1, true);
+								end
+							end
+						end)
+
+						local leave;
+						leave = frame.MouseLeave:connect(function()
+							input:disconnect();
+							leave:disconnect();
+						end)
+					end)
+				end
+			end
+
+			function resizer.new(p, s)
+				p:GetPropertyChangedSignal('AbsoluteSize'):connect(function()
+					s.Size = UDim2.new(s.Size.X.Scale, s.Size.X.Offset, s.Size.Y.Scale, p.AbsoluteSize.Y);
+				end)
+			end
+		end
+		script.Parent.Active = true
+		script.Parent.Draggable = true
+	end
+end)
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+TextLabel.Size = UDim2.new(0, 264, 0, 24)
+TextLabel.Font = Enum.Font.LuckiestGuy
+TextLabel.Text = "HatHub"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+Requirement.Name = "Requirement"
+Requirement.Parent = Hathub
+Requirement.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Requirement.Position = UDim2.new(0.670494676, 0, 0.722424269, 0)
+Requirement.Size = UDim2.new(0, 373, 0, 229)
+
+ExitRequiredHatsforhathub.Name = "Exit Required Hats for hathub"
+ExitRequiredHatsforhathub.Parent = Requirement
+ExitRequiredHatsforhathub.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ExitRequiredHatsforhathub.Position = UDim2.new(0.850127101, 0, -0.00227509206, 0)
+ExitRequiredHatsforhathub.Size = UDim2.new(0, 32, 0, 27)
+ExitRequiredHatsforhathub.ZIndex = 10
+ExitRequiredHatsforhathub.Font = Enum.Font.SourceSans
+ExitRequiredHatsforhathub.Text = "X"
+ExitRequiredHatsforhathub.TextColor3 = Color3.fromRGB(0, 0, 0)
+ExitRequiredHatsforhathub.TextScaled = true
+ExitRequiredHatsforhathub.TextSize = 14.000
+ExitRequiredHatsforhathub.TextWrapped = true
+
+TextBox.Parent = Requirement
+TextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextBox.Size = UDim2.new(0, 373, 0, 229)
+TextBox.Font = Enum.Font.LuckiestGuy
+TextBox.Text = "Required hats needed for HatHub \"hand\" script:\\n \\n(Copy and paste links into a new tab)\\n \\nhttps://www.roblox.com/catalog/4855525473/Nagamaki\\nhttps://www.roblox.com/catalog/451220849/Lavender-Updo\\nhttps://www.roblox.com/catalog/376524487/Blonde-Spiked-Hair\\nhttps://www.roblox.com/catalog/63690008/Pal-Hair\\nhttps://www.roblox.com/catalog/62724852/Chestnut-Bun\\nhttps://www.roblox.com/catalog/62234425/Brown-Hair\\nhttps://www.roblox.com/catalog/48474313/Red-Roblox-Cap\\nhttps://www.roblox.com/catalog/48474294/ROBLOX-Girl-Hair\\nhttps://www.roblox.com/catalog/20372960/Bed-Hair\\nhttps://www.roblox.com/catalog/8337370/Blockhead-Baseball-Cap"
+TextBox.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextBox.TextScaled = true
+TextBox.TextSize = 14.000
+TextBox.TextWrapped = true
+
+-- Scripts:
+
+local function BEXUM_fake_script() -- ExitRequiredHatsforhathub.Exit 
+	local script = Instance.new('Script', ExitRequiredHatsforhathub)
+
+	Button = script.Parent.Parent
+	
+	function onClick()
+	if Button.Visible == true then
+	Button.Visible = false
+	else Button.Visible = true
+	end
+	end
+	
+	script.Parent.MouseButton1Click:connect(onClick)
+end
+coroutine.wrap(BEXUM_fake_script)()
