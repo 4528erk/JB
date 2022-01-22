@@ -1,0 +1,146 @@
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local ImageLabel = Instance.new("ImageLabel")
+local UNLOCKALLISLANDS = Instance.new("TextButton")
+local AutoFarm = Instance.new("TextButton")
+local Unlockallelements = Instance.new("TextButton")
+local OwlHubAimbot = Instance.new("TextButton")
+
+
+
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.Position = UDim2.new(0, 0, 0.69044584, 0)
+Frame.Size = UDim2.new(0, 371, 0, 243)
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+TextLabel.Size = UDim2.new(0, 371, 0, 33)
+TextLabel.Font = Enum.Font.LuckiestGuy
+TextLabel.Text = "Ninja Legends"
+TextLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextStrokeColor3 = Color3.fromRGB(170, 0, 0)
+TextLabel.TextWrapped = true
+
+ImageLabel.Parent = Frame
+ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel.Position = UDim2.new(0, 0, 0.135802463, 0)
+ImageLabel.Size = UDim2.new(0, 371, 0, 210)
+ImageLabel.Image = "http://www.roblox.com/asset/?id=4504145140"
+
+UNLOCKALLISLANDS.Name = "UNLOCK ALL ISLANDS"
+UNLOCKALLISLANDS.Parent = Frame
+UNLOCKALLISLANDS.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+UNLOCKALLISLANDS.Position = UDim2.new(0.0188679248, 0, 0.230452672, 0)
+UNLOCKALLISLANDS.Size = UDim2.new(0, 89, 0, 50)
+UNLOCKALLISLANDS.Font = Enum.Font.LuckiestGuy
+UNLOCKALLISLANDS.Text = "Unlock All Islands"
+UNLOCKALLISLANDS.TextColor3 = Color3.fromRGB(255, 0, 0)
+UNLOCKALLISLANDS.TextScaled = true
+UNLOCKALLISLANDS.TextSize = 14.000
+UNLOCKALLISLANDS.TextWrapped = true
+UNLOCKALLISLANDS.MouseButton1Down:connect(function()
+	-- Unlock All Islands! (Made By Imagine#0368)
+	-- Subscribe To KillerKid360!!!
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").islandUnlockParts["Enchanted Island"].CFrame
+	wait(.7)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").islandUnlockParts["Astral Island"].CFrame
+	wait(.7)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").islandUnlockParts["Mystical Island"].CFrame
+	wait(.7)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").islandUnlockParts["Space Island"].CFrame
+	wait(.7)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").islandUnlockParts["Tundra Island"].CFrame
+	wait(.7)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").islandUnlockParts["Eternal Island"].CFrame
+	wait(.7)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").islandUnlockParts["Sandstorm"].CFrame
+	wait(.7)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").islandUnlockParts["Thunderstorm"].CFrame
+	wait(.7)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").islandUnlockParts["Ancient Inferno Island"].CFrame
+	wait(.7)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").islandUnlockParts["Midnight Shadow Island"].CFrame
+	wait(.7)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").islandUnlockParts["Mythical Souls Island"].CFrame
+	wait(.7)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").islandUnlockParts["Winter Wonder Island"].CFrame
+	wait(.7)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").islandUnlockParts["Golden Master Island"].CFrame
+	wait(.7)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").islandUnlockParts["Dragon Legend Island"].CFrame
+	wait(.7)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").islandUnlockParts["Cybernetic Legends Island"].CFrame
+	wait(.7)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").islandUnlockParts["Skystorm Ultraus Island"].CFrame
+	wait(.7)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").islandUnlockParts["Chaos Legends Island"].CFrame
+	wait(.7)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").islandUnlockParts["Soul Fusion Island"].CFrame
+	wait(.7)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").islandUnlockParts["Dark Elements Island"].CFrame
+	wait(.7)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").islandUnlockParts["Inner Peace Island"].CFrame
+end)
+
+
+AutoFarm.Name = "AutoFarm"
+AutoFarm.Parent = Frame
+AutoFarm.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+AutoFarm.Position = UDim2.new(0.741239905, 0, 0.230452672, 0)
+AutoFarm.Size = UDim2.new(0, 89, 0, 50)
+AutoFarm.Font = Enum.Font.LuckiestGuy
+AutoFarm.Text = "AutoFarm"
+AutoFarm.TextColor3 = Color3.fromRGB(255, 0, 0)
+AutoFarm.TextScaled = true
+AutoFarm.TextSize = 14.000
+AutoFarm.TextWrapped = true
+AutoFarm.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet("https://pastebin.com/raw/RjLQKZxZ"))()
+end)
+
+
+
+Unlockallelements.Name = "Unlock all elements"
+Unlockallelements.Parent = Frame
+Unlockallelements.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+Unlockallelements.Position = UDim2.new(0.0188679248, 0, 0.646090508, 0)
+Unlockallelements.Size = UDim2.new(0, 89, 0, 50)
+Unlockallelements.Font = Enum.Font.LuckiestGuy
+Unlockallelements.Text = "Unlock All Elements"
+Unlockallelements.TextColor3 = Color3.fromRGB(255, 0, 0)
+Unlockallelements.TextScaled = true
+Unlockallelements.TextSize = 14.000
+Unlockallelements.TextWrapped = true
+Unlockallelements.MouseButton1Down:connect(function()
+	--Frost
+	game.ReplicatedStorage.rEvents.elementMasteryEvent:FireServer("Frost")
+
+	--Inferno
+	game.ReplicatedStorage.rEvents.elementMasteryEvent:FireServer("Inferno")
+
+	--Lightning
+	game.ReplicatedStorage.rEvents.elementMasteryEvent:FireServer("Lightning")
+
+	--Electral
+	game.ReplicatedStorage.rEvents.elementMasteryEvent:FireServer("Electral Chaos")
+
+	--Wrath
+	game.ReplicatedStorage.rEvents.elementMasteryEvent:FireServer("Masterful Wrath")
+
+	--Shadow
+	game.ReplicatedStorage.rEvents.elementMasteryEvent:FireServer("Shadow Charge")
+
+	--ShadowFire
+	game.ReplicatedStorage.rEvents.elementMasteryEvent:FireServer("Shadowfire")
+
+	--Eternity Storm
+	game.ReplicatedStorage.rEvents.elementMasteryEvent:FireServer("Eternity Storm")
+end)
