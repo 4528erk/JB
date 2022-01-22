@@ -1,0 +1,184 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local Title = Instance.new("TextLabel")
+local ESP = Instance.new("TextButton")
+local Aimbot = Instance.new("TextButton")
+local Exit = Instance.new("TextButton")
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(103, 103, 103)
+Frame.BorderColor3 = Color3.fromRGB(255, 255, 255)
+Frame.Size = UDim2.new(0, 169, 0, 169)
+
+Title.Name = "Title"
+Title.Parent = Frame
+Title.BackgroundColor3 = Color3.fromRGB(91, 91, 91)
+Title.Position = UDim2.new(-0.0946745574, 0, 0, 0)
+Title.Size = UDim2.new(0, 185, 0, 36)
+Title.Font = Enum.Font.LuckiestGuy
+Title.Text = "Aimbot"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextSize = 14.000
+
+ESP.Name = "ESP"
+ESP.Parent = Frame
+ESP.BackgroundColor3 = Color3.fromRGB(72, 72, 72)
+ESP.Position = UDim2.new(0.0591715947, 0, 0.627218902, 0)
+ESP.Size = UDim2.new(0, 149, 0, 50)
+ESP.Font = Enum.Font.LuckiestGuy
+ESP.Text = "Item ESP"
+ESP.TextColor3 = Color3.fromRGB(255, 255, 255)
+ESP.TextSize = 26.000
+ESP.TextWrapped = true
+ESP.MouseButton1Down:connect(function()
+	local function DrawDrop(drop)
+
+		local DropText = Drawing.new("Text")
+		DropText.Visible = false
+		DropText.Center = true
+		DropText.Outline = true
+		DropText.Font = 2
+		DropText.Size = 13
+		DropText.Color = Color3.new(1,1,1) --> or any color, using FromRGB
+		DropText.Text = "Drop"
+
+		local function UPDATER()
+			local c
+			c = game:GetService("RunService").RenderStepped:Connect(function()
+				if drop and workspace:FindFirstChild(drop.Name) and drop:FindFirstChild("Briefcase") then
+
+					local dropvector, onscreen = camera:WorldToViewportPoint(drop.Briefcase.Position)
+
+					if onscreen then
+						DropText.Position = Vector2.new(dropvector.X, dropvector.Y)
+						DropText.Visible = true
+					else
+						DropText.Visible = false
+					end
+
+				else
+
+					if game:GetService("Workspace"):FindFirstChild(drop.Name) == nil then
+						c:Disconnect()
+					end
+
+					DropText.Visible = false
+
+				end
+			end)
+		end
+		coroutine.wrap(UPDATER)()
+	end
+
+	for i,drop in pairs(workspace:GetChildren()) do
+		if drop.Name == "Drop" then
+			if drop:FindFirstChild("Briefcase") then
+				coroutine.wrap(DrawDrop)(drop)
+			end
+		end
+	end
+
+	workspace.ChildAdded:Connect(function(drop)
+		if drop.Name == "Drop" then
+			if drop:FindFirstChild("Briefcase") then
+				coroutine.wrap(DrawDrop)(drop)
+			end
+		end
+	end)
+end)
+
+
+Aimbot.Name = "Aimbot"
+Aimbot.Parent = Frame
+Aimbot.BackgroundColor3 = Color3.fromRGB(72, 72, 72)
+Aimbot.Position = UDim2.new(0.0591715947, 0, 0.248520672, 0)
+Aimbot.Size = UDim2.new(0, 149, 0, 50)
+Aimbot.Font = Enum.Font.LuckiestGuy
+Aimbot.Text = "Aimbot"
+Aimbot.TextColor3 = Color3.fromRGB(255, 255, 255)
+Aimbot.TextSize = 24.000
+Aimbot.TextWrapped = true
+Aimbot.MouseButton1Down:connect(function()
+	--> variables
+	local UIS = game:GetService("UserInputService")
+	local camera = game.Workspace.CurrentCamera
+	--> getting the closest player
+	function getClosest()
+		local closestPlayer = nil
+		local closesDist = math.huge
+		for i,v in pairs(game.Players:GetPlayers()) do
+			if v ~= game.Players.LocalPlayer then
+				local Dist = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).magnitude
+				if Dist < closesDist then
+					closesDist = Dist
+					closestPlayer = v
+				end
+			end
+		end
+		return closestPlayer
+	end
+
+	--> starting the aimbot
+	_G.aim = false
+	UIS.InputBegan:Connect(function(inp)
+		if inp.UserInputType == Enum.UserInputType.MouseButton2 then
+			_G.aim = true
+			while wait() do
+				camera.CFrame = CFrame.new(camera.CFrame.Position,getClosest().Character.Head.Position)
+				if _G.aim == false then return end
+			end
+		end
+	end)
+	--> ending the aimbot
+	UIS.InputEnded:Connect(function(inp)
+		if inp.UserInputType == Enum.UserInputType.MouseButton2 then
+			_G.aim = false
+		end
+	end)
+end)
+
+
+Exit.Name = "Exit"
+Exit.Parent = Frame
+Exit.BackgroundColor3 = Color3.fromRGB(72, 72, 72)
+Exit.Position = UDim2.new(0.822485209, 0, 0, 0)
+Exit.Size = UDim2.new(0, 30, 0, 36)
+Exit.Font = Enum.Font.LuckiestGuy
+Exit.Text = "x"
+Exit.TextColor3 = Color3.fromRGB(255, 255, 255)
+Exit.TextSize = 24.000
+Exit.TextWrapped = true
+
+-- Scripts:
+
+local function RNVXP_fake_script() -- Exit.Exit 
+	local script = Instance.new('Script', Exit)
+
+	Button = script.Parent.Parent
+	
+	function onClick()
+	if Button.Visible == true then
+	Button.Visible = false
+	else Button.Visible = true
+	end
+	end
+
+	game:GetService("StarterGui"):SetCore("SendNotification", {
+		Title = "Aimbot - ESP";
+		Text = "Aimbot By Github User";
+		Duration = 5;
+	})
+	
+	script.Parent.MouseButton1Click:connect(onClick)
+end
+coroutine.wrap(RNVXP_fake_script)()
