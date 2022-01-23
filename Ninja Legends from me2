@@ -106,7 +106,7 @@ if game.PlaceId == 3956818381 then
     Fly()
     game:GetService("StarterGui"):SetCore("SendNotification", {
         Title = "Fly";
-        Text = "Press :E: To toggle fly";
+        Text = "Press :F: To toggle fly";
         Duration = 5;
     })
 
