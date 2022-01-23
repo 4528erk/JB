@@ -5,6 +5,14 @@ if game.PlaceId == 3956818381 then
     local MainSection = Main:NewSection("Main")
     local Player = Window:NewTab("Player")
     local PlayerSection = Player:NewSection("Player")
+    MainSection:NewKeybind("Toggle", "Toggles Library", Enum.KeyCode.E, function()
+        Library:ToggleUI()
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+            Title = "Toggle Library";
+            Text = "Press :E: To toggle Library";
+            Duration = 4;
+        })
+    end)
 
 
     PlayerSection:NewSlider("WalkSpeed", "Makes You Run Faster", 250, 16, function(v) 
