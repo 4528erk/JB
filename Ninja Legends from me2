@@ -7,11 +7,6 @@ if game.PlaceId == 3956818381 then
     local PlayerSection = Player:NewSection("Player")
     MainSection:NewKeybind("Toggle", "Toggles Library", Enum.KeyCode.E, function()
         Library:ToggleUI()
-        game:GetService("StarterGui"):SetCore("SendNotification", {
-            Title = "Toggle Library";
-            Text = "Press :E: To toggle Library";
-            Duration = 4;
-        })
     end)
 
 
@@ -81,7 +76,7 @@ if game.PlaceId == 3956818381 then
     plr.Character.Humanoid.PlatformStand = false 
     end 
     mouse.KeyDown:connect(function(key) 
-    if key:lower() == "e" then 
+    if key:lower() == "f" then 
     if flying then flying = false 
     else 
     flying = true 
