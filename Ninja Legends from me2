@@ -119,7 +119,7 @@ MainSection:NewDropdown("Give All Elements", "Gives the localplayer all elements
           --Frost
 game.ReplicatedStorage.rEvents.elementMasteryEvent:FireServer("Frost")
 
---Inferno
+--Inferno--
 game.ReplicatedStorage.rEvents.elementMasteryEvent:FireServer("Inferno")
 
 --Lightning
@@ -185,7 +185,7 @@ game.ReplicatedStorage.rEvents.elementMasteryEvent:FireServer("Eternity Storm")
                     game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
                     break
                 end
-            end
+             end
             local A_1 = "swingKatana"
             local Event = game:GetService("Players").LocalPlayer.ninjaEvent
             Event:FireServer(A_1)
