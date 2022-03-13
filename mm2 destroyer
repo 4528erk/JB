@@ -16,7 +16,7 @@ local DN = Instance.new("TextLabel")
 
 --Properties:
 
-ScreenGui.Parent = game.Workspace
+ScreenGui.Parent = game.CoreGui
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 Gui.Name = "Gui"
