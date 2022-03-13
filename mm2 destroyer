@@ -1,0 +1,189 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local Gui = Instance.new("Frame")
+local ImageLabel = Instance.new("ImageLabel")
+local side = Instance.new("Frame")
+local side_2 = Instance.new("Frame")
+local Exit = Instance.new("ImageButton")
+local Autofarm = Instance.new("TextButton")
+local Fly = Instance.new("TextButton")
+local TextLabel = Instance.new("TextLabel")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Gui.Name = "Gui"
+Gui.Parent = ScreenGui
+Gui.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Gui.Position = UDim2.new(0.30320698, 0, 0.309202433, 0)
+Gui.Size = UDim2.new(0, 539, 0, 263)
+Gui.Active = true
+Gui.Draggable = true
+
+ImageLabel.Parent = Gui
+ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel.Position = UDim2.new(-0.00185528758, 0, 0, 0)
+ImageLabel.Size = UDim2.new(0, 539, 0, 263)
+ImageLabel.Image = "http://www.roblox.com/asset/?id=8606796112"
+
+side.Name = "side"
+side.Parent = Gui
+side.BackgroundColor3 = Color3.fromRGB(85, 85, 85)
+side.BorderColor3 = Color3.fromRGB(63, 63, 63)
+side.Position = UDim2.new(0.864564002, 0, 0, 0)
+side.Size = UDim2.new(0, 73, 0, 263)
+
+
+side_2.Name = "side"
+side_2.Parent = side
+side_2.BackgroundColor3 = Color3.fromRGB(85, 85, 85)
+side_2.BorderColor3 = Color3.fromRGB(63, 63, 63)
+side_2.Position = UDim2.new(-6.38356161, 0, -0.155893534, 0)
+side_2.Size = UDim2.new(0, 539, 0, 41)
+
+
+Exit.Name = "Exit"
+Exit.Parent = Gui
+Exit.BackgroundColor3 = Color3.fromRGB(85, 85, 85)
+Exit.Position = UDim2.new(0.92949909, 0, -0.155893534, 0)
+Exit.Size = UDim2.new(0, 38, 0, 41)
+Exit.Image = "http://www.roblox.com/asset/?id=3523227283"
+
+Autofarm.Name = "Auto farm"
+Autofarm.Parent = Gui
+Autofarm.BackgroundColor3 = Color3.fromRGB(106, 106, 106)
+Autofarm.Position = UDim2.new(0.0222634505, 0, 0.0532319397, 0)
+Autofarm.Size = UDim2.new(0, 123, 0, 50)
+Autofarm.Font = Enum.Font.LuckiestGuy
+Autofarm.Text = "Auto Farm"
+Autofarm.TextColor3 = Color3.fromRGB(255, 255, 255)
+Autofarm.TextSize = 14.000
+Autofarm.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet("https://gist.githubusercontent.com/TurkOyuncu99/16d946bfe0a0ed98a8e32de362fd4217/raw/0681fa979da042841f4e71a52490fdc3a2a16376/cac", true))()
+end)
+
+Fly.Name = "Fly"
+Fly.Parent = Gui
+Fly.BackgroundColor3 = Color3.fromRGB(106, 106, 106)
+Fly.Position = UDim2.new(0.61038959, 0, 0.0532319397, 0)
+Fly.Size = UDim2.new(0, 123, 0, 50)
+Fly.Font = Enum.Font.LuckiestGuy
+Fly.Text = "Fly"
+Fly.TextColor3 = Color3.fromRGB(255, 255, 255)
+Fly.TextSize = 14.000
+Fly.MouseButton1Down:connect(function()
+	repeat wait() 
+	until game.Players.LocalPlayer and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:findFirstChild("Head") and game.Players.LocalPlayer.Character:findFirstChild("Humanoid") 
+	local mouse = game.Players.LocalPlayer:GetMouse() 
+	repeat wait() until mouse
+	local plr = game.Players.LocalPlayer 
+	local torso = plr.Character.Head 
+	local flying = false
+	local deb = true 
+	local ctrl = {f = 0, b = 0, l = 0, r = 0} 
+	local lastctrl = {f = 0, b = 0, l = 0, r = 0} 
+	local maxspeed = 400 
+	local speed = 5000 
+
+	function Fly() 
+		local bg = Instance.new("BodyGyro", torso) 
+		bg.P = 9e4 
+		bg.maxTorque = Vector3.new(9e9, 9e9, 9e9) 
+		bg.cframe = torso.CFrame 
+		local bv = Instance.new("BodyVelocity", torso) 
+		bv.velocity = Vector3.new(0,0.1,0) 
+		bv.maxForce = Vector3.new(9e9, 9e9, 9e9) 
+		repeat wait() 
+			plr.Character.Humanoid.PlatformStand = true 
+			if ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0 then 
+				speed = speed+.5+(speed/maxspeed) 
+				if speed > maxspeed then 
+					speed = maxspeed 
+				end 
+			elseif not (ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0) and speed ~= 0 then 
+				speed = speed-1 
+				if speed < 0 then 
+					speed = 0 
+				end 
+			end 
+			if (ctrl.l + ctrl.r) ~= 0 or (ctrl.f + ctrl.b) ~= 0 then 
+				bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (ctrl.f+ctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(ctrl.l+ctrl.r,(ctrl.f+ctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed 
+				lastctrl = {f = ctrl.f, b = ctrl.b, l = ctrl.l, r = ctrl.r} 
+			elseif (ctrl.l + ctrl.r) == 0 and (ctrl.f + ctrl.b) == 0 and speed ~= 0 then 
+				bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (lastctrl.f+lastctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(lastctrl.l+lastctrl.r,(lastctrl.f+lastctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed 
+			else 
+				bv.velocity = Vector3.new(0,0.1,0) 
+			end 
+			bg.cframe = game.Workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad((ctrl.f+ctrl.b)*50*speed/maxspeed),0,0) 
+		until not flying 
+		ctrl = {f = 0, b = 0, l = 0, r = 0} 
+		lastctrl = {f = 0, b = 0, l = 0, r = 0} 
+		speed = 0 
+		bg:Destroy() 
+		bv:Destroy() 
+		plr.Character.Humanoid.PlatformStand = false 
+	end 
+	mouse.KeyDown:connect(function(key) 
+		if key:lower() == "e" then 
+			if flying then flying = false 
+			else 
+				flying = true 
+				Fly() 
+			end 
+		elseif key:lower() == "w" then 
+			ctrl.f = 1 
+		elseif key:lower() == "s" then 
+			ctrl.b = -1 
+		elseif key:lower() == "a" then 
+			ctrl.l = -1 
+		elseif key:lower() == "d" then 
+			ctrl.r = 1 
+		end 
+	end) 
+	mouse.KeyUp:connect(function(key) 
+		if key:lower() == "w" then 
+			ctrl.f = 0 
+		elseif key:lower() == "s" then 
+			ctrl.b = 0 
+		elseif key:lower() == "a" then 
+			ctrl.l = 0 
+		elseif key:lower() == "d" then 
+			ctrl.r = 0 
+		end 
+	end)
+	Fly()
+end)
+
+TextLabel.Parent = Gui
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.Position = UDim2.new(0, 0, -0.110266156, 0)
+TextLabel.Size = UDim2.new(0, 501, 0, 20)
+TextLabel.Font = Enum.Font.LuckiestGuy
+TextLabel.Text = "MM2 DESTROYER"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 14.000
+
+-- Scripts:
+
+local function FGVLEK_fake_script() -- Exit.Exit 
+	local script = Instance.new('Script', Exit)
+
+	Exit = script.Parent.Parent
+	
+	function onClick()
+	if Exit.Visible == true then
+	Exit.Visible = false
+	else Exit.Visible = true
+	end
+	end
+	
+	script.Parent.MouseButton1Click:connect(onClick)
+end
+coroutine.wrap(FGVLEK_fake_script)()
