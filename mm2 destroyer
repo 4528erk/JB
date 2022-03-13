@@ -5,48 +5,38 @@
 
 local ScreenGui = Instance.new("ScreenGui")
 local Gui = Instance.new("Frame")
-local ImageLabel = Instance.new("ImageLabel")
 local side = Instance.new("Frame")
 local side_2 = Instance.new("Frame")
 local Exit = Instance.new("ImageButton")
 local Autofarm = Instance.new("TextButton")
 local Fly = Instance.new("TextButton")
+local ImageLabel = Instance.new("ImageLabel")
 local TextLabel = Instance.new("TextLabel")
 
 --Properties:
 
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.Parent = game.Workspace
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 Gui.Name = "Gui"
 Gui.Parent = ScreenGui
 Gui.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Gui.Position = UDim2.new(0.30320698, 0, 0.309202433, 0)
-Gui.Size = UDim2.new(0, 539, 0, 263)
-Gui.Active = true
-Gui.Draggable = true
-
-ImageLabel.Parent = Gui
-ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-ImageLabel.Position = UDim2.new(-0.00185528758, 0, 0, 0)
-ImageLabel.Size = UDim2.new(0, 539, 0, 263)
-ImageLabel.Image = "http://www.roblox.com/asset/?id=8606796112"
+Gui.Position = UDim2.new(0.294460654, 0, 0.257668734, 0)
+Gui.Size = UDim2.new(0, 539, 0, 301)
 
 side.Name = "side"
 side.Parent = Gui
 side.BackgroundColor3 = Color3.fromRGB(85, 85, 85)
 side.BorderColor3 = Color3.fromRGB(63, 63, 63)
 side.Position = UDim2.new(0.864564002, 0, 0, 0)
-side.Size = UDim2.new(0, 73, 0, 263)
-
+side.Size = UDim2.new(0, 73, 0, 301)
 
 side_2.Name = "side"
 side_2.Parent = side
 side_2.BackgroundColor3 = Color3.fromRGB(85, 85, 85)
 side_2.BorderColor3 = Color3.fromRGB(63, 63, 63)
-side_2.Position = UDim2.new(-6.38356161, 0, -0.155893534, 0)
-side_2.Size = UDim2.new(0, 539, 0, 41)
-
+side_2.Position = UDim2.new(-6.38356161, 0, -0.15589352, 0)
+side_2.Size = UDim2.new(0, 539, 0, 46)
 
 Exit.Name = "Exit"
 Exit.Parent = Gui
@@ -58,8 +48,9 @@ Exit.Image = "http://www.roblox.com/asset/?id=3523227283"
 Autofarm.Name = "Auto farm"
 Autofarm.Parent = Gui
 Autofarm.BackgroundColor3 = Color3.fromRGB(106, 106, 106)
-Autofarm.Position = UDim2.new(0.0222634505, 0, 0.0532319397, 0)
+Autofarm.Position = UDim2.new(0.0333951712, 0, 0.0698432922, 0)
 Autofarm.Size = UDim2.new(0, 123, 0, 50)
+Autofarm.ZIndex = 500
 Autofarm.Font = Enum.Font.LuckiestGuy
 Autofarm.Text = "Auto Farm"
 Autofarm.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -68,15 +59,18 @@ Autofarm.MouseButton1Down:connect(function()
 	loadstring(game:HttpGet("https://gist.githubusercontent.com/TurkOyuncu99/16d946bfe0a0ed98a8e32de362fd4217/raw/0681fa979da042841f4e71a52490fdc3a2a16376/cac", true))()
 end)
 
+
 Fly.Name = "Fly"
 Fly.Parent = Gui
 Fly.BackgroundColor3 = Color3.fromRGB(106, 106, 106)
-Fly.Position = UDim2.new(0.61038959, 0, 0.0532319397, 0)
+Fly.Position = UDim2.new(0.595547259, 0, 0.0698432922, 0)
 Fly.Size = UDim2.new(0, 123, 0, 50)
+Fly.ZIndex = 500
 Fly.Font = Enum.Font.LuckiestGuy
 Fly.Text = "Fly"
 Fly.TextColor3 = Color3.fromRGB(255, 255, 255)
 Fly.TextSize = 14.000
+
 Fly.MouseButton1Down:connect(function()
 	repeat wait() 
 	until game.Players.LocalPlayer and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:findFirstChild("Head") and game.Players.LocalPlayer.Character:findFirstChild("Humanoid") 
@@ -160,6 +154,12 @@ Fly.MouseButton1Down:connect(function()
 	Fly()
 end)
 
+ImageLabel.Parent = Gui
+ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel.Position = UDim2.new(-0.00125897746, 0, 0, 0)
+ImageLabel.Size = UDim2.new(0, 473, 0, 301)
+ImageLabel.Image = "http://www.roblox.com/asset/?id=8606796112"
+
 TextLabel.Parent = Gui
 TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.BackgroundTransparency = 1.000
@@ -172,7 +172,7 @@ TextLabel.TextSize = 14.000
 
 -- Scripts:
 
-local function FGVLEK_fake_script() -- Exit.Exit 
+local function SBQCYP_fake_script() -- Exit.Exit 
 	local script = Instance.new('Script', Exit)
 
 	Exit = script.Parent.Parent
@@ -186,4 +186,4 @@ local function FGVLEK_fake_script() -- Exit.Exit
 	
 	script.Parent.MouseButton1Click:connect(onClick)
 end
-coroutine.wrap(FGVLEK_fake_script)()
+coroutine.wrap(SBQCYP_fake_script)()
